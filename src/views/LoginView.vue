@@ -49,6 +49,7 @@
         <h2 class="text-xl font-bold mb-3">Hint</h2>
         <p class="mb-3">Psst... the available user logins are:</p>
         <div class="bg-blue-50 p-3 rounded-md shadow-inner">
+          <p class="italic text-orange-700">Admin</p>
           <p><span class="font-semibold">Email:</span> jensen@mail.dk</p>
           <p><span class="font-semibold">Passw:</span> citron</p>
         </div>
