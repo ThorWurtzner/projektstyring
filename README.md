@@ -1,29 +1,34 @@
-# Projektstyring
 
-This template should help get you started developing with Vue 3 in Vite.
+# **Usage**
+### - Login
+Enter your email and password on the login page to sign in. If the credentials are incorrect, an error message will be displayed.
 
-## Recommended IDE Setup
+Click on the "Hint" button on the login page to display the current available users (for practical purposes)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### - Home
+Once authenticated, the user is redirected to the home page, which is protected by a route guard.
 
-## Customize configuration
+From here, it is possible to track your current projects, and if an admin - create new ones.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+# Backend
+Using Firebase Authentification, a unique ID is tied to each user - this ID is used as the document ID in the actual database to efficiently lookup whether the logged in email is an admin or not. 
 
-## Project Setup
+Visualization:
+| Document ID [Users]                  | mail  | admin             |
+|--------------------------------------|-------|------------------|
+| MLFmH8PmCBPhzI6EwnQ9dKUUt3I3         | jensen@mail.dk   | true   |
+| 1eNuD2emCKavggVggoVaZYk2dQF2         | hansen@mail.dk | false   |
 
-```sh
-npm install
-```
 
-### Compile and Hot-Reload for Development
 
-```sh
-npm run dev
-```
+# **Tech Stack**
 
-### Compile and Minify for Production
+**Frontend:**
+- Vue.js
+- Tailwind CSS
 
-```sh
-npm run build
-```
+**Backend:**
+- Firebase Authentication
+
+**Build Tools:**
+- Vite

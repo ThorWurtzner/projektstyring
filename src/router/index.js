@@ -11,9 +11,9 @@ const router = createRouter({
       component: LoginView
     },
     {
-      path: '/home',
-      name: 'Home',
-      component: () => import('../views/HomeView.vue'),
+      path: '/dashboard',
+      name: 'Dashboard',
+      component: () => import('../views/DashboardView.vue'),
       meta: { requiresAuth: true }
     }
   ]
