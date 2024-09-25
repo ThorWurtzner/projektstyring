@@ -34,7 +34,7 @@
     <form @submit.prevent="login" class="relative w-96 max-w-full h-96 bg-slate-100 rounded-e-3xl flex flex-col justify-center gap-5 p-10 shadow-lg">
       <div @click="modalVisible = true" class="absolute right-10 top-11 bg-slate-200 border-2 border-slate-400 w-10 h-10 rounded-full text-xs opacity-60 font-semibold grid place-items-center hover:bg-slate-400 transition-colors cursor-pointer">Hint</div>
       
-      <h1 class="font-bold text-2xl mb-5 text-blue-400">Login | Projektstyring</h1>
+      <h1 class="font-bold text-xl mb-5 text-blue-400">Login | Projektstyring</h1>
       <input type="email" placeholder="Email" v-model="email" required class="inputField" />
       <input type="password" placeholder="Password" v-model="password" required class="inputField" />
       <!-- Shows error message on invalid login -->
