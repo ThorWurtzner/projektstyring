@@ -57,6 +57,10 @@
           <p><span class="font-semibold">Email:</span> hansen@mail.dk</p>
           <p><span class="font-semibold">Passw:</span> appelsin</p>
         </div>
+        <div class="bg-blue-50 p-3 rounded-md shadow-inner mt-3">
+          <p><span class="font-semibold">Email:</span> pedersen@mail.dk</p>
+          <p><span class="font-semibold">Passw:</span> abrikos</p>
+        </div>
         <button @click="modalVisible = false" class="primaryBtn mt-5">Close</button>
       </div>
     </div>

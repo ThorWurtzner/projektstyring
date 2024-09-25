@@ -1,19 +1,19 @@
 <script setup>
-    import { defineProps, defineEmits } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 
-    const props = defineProps({
-    projectData: {
-        type: Object,
-        required: true
-    },
-    isAdmin: {
-      type: Boolean,
-      required: true
-    }
+const props = defineProps({
+projectData: {
+    type: Object,
+    required: true
+},
+isAdmin: {
+    type: Boolean,
+    required: true
+}
 
-  });
+});
 
-  const emit = defineEmits(['deleteProject', "viewTasks"])
+const emit = defineEmits(['deleteProject', "viewTasks"])
 
 </script>
 
@@ -23,7 +23,7 @@
       <p class="text-gray-600 mt-4">{{ projectData?.description }}</p>
   
       <div class="mt-4 flex justify-between items-center">
-        <button @click="emit('viewTasks', projectData.id)" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Tasks</button>
+        <button @click="emit('viewTasks', projectData.id, projectData.name)" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Tasks</button>
         <button v-if="isAdmin" @click="emit('deleteProject', projectData.id)" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Delete</button>
       </div>
     </div>
