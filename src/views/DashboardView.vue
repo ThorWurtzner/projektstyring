@@ -157,8 +157,8 @@
         userAssigned: userAssigned.value
       })
 
-      taskName = "";
-      taskStatus = "None";
+      taskName.value = "";
+      userAssigned = "None";
     } catch(err) { 
       console.error(err);
     }
@@ -206,7 +206,7 @@
     <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid border-opacity-50"></div>
   </div>
 
-  <div v-else class="h-screen">
+  <div v-else class="h-screen text-sm sm:text-base">
     <header class="w-full h-20 flex items-center justify-between px-5 shadow-md bg-slate-100">
       <p class="font-semibold text-blue-500">{{ auth.currentUser.email }}
         <span v-if="isAdmin" class="text-orange-700 font-black text-lg">- Admin</span>
@@ -217,7 +217,7 @@
 
     <main class="max-h-[calc(100vh-5rem)] overflow-hidden flex flex-col h-full justify-between mx-5 sm:mx-16">
         <div class="flex flex-col flex-grow items-center gap-3 mt-8 overflow-y-scroll">
-          <h1 class="text-3xl font-semibold w-full text-center border-b-4 border-blue-50 rounded-3xl pb-5 mb-3 md:w-96">Projects</h1>
+          <h1 class="text-xl font-semibold w-full text-center border-b-4 border-blue-50 rounded-3xl pb-5 mb-3 md:w-96 md:text-2xl">Projects</h1>
           <!-- primary content components -->
             <Project 
               v-for="project in projects"
@@ -228,7 +228,7 @@
               @viewTasks="viewTasks"
             />
         </div>
-      <button v-if="isAdmin" @click="showProjectModal = true" class="bg-blue-600 hover:bg-blue-700 py-4 text-white font-semibold text-xl mt-6 rounded-3xl mb-5 w-full self-center max-w-96">+ Add new project</button>
+      <button v-if="isAdmin" @click="showProjectModal = true" class="bg-blue-600 hover:bg-blue-700 py-4 text-white font-semibold text-lg sm:text-xl mt-6 rounded-3xl mb-5 w-full self-center max-w-96">+ Add new project</button>
       
 
       <!-- Project creation Modal -->
@@ -252,7 +252,7 @@
         <div v-if="!tasksLoaded" class="flex justify-center items-center h-screen">
           <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid border-opacity-50"></div>
         </div>
-        <div v-else class="bg-white p-5 rounded-lg shadow-lg w-full mx-3 sm:w-[500px] flex flex-col">
+        <div v-else class="bg-white p-5 rounded-lg shadow-lg w-full mx-3 max-h-full sm:w-[500px] flex flex-col text-sm sm:text-base">
           <h3 class="font-semibold text-xl mb-5 text-gray-400">'{{ currentProjectName }}'</h3>
           <form v-if="isAdmin" @submit.prevent="createTaskForProject" class="flex flex-col gap-3 bg-slate-100 p-5 mb-7">
             <h3 class="font-semibold text-xl mb-5">Admin Task Management</h3>
@@ -272,20 +272,20 @@
             </div>
           </form>
 
-            <div class="max-h-96 min-h-40 bg-slate-100 rounded-md p-5 flex flex-col gap-4 overflow-scroll">
+          <div class="min-h-40 bg-slate-100 rounded-md p-5 flex flex-col gap-4 overflow-scroll text-sm sm:text-base sm:max-h-96">
 
-              <Task v-if="tasks" v-for="task in tasks"
-                :key="task.id"
-                :taskData="task"
-                :isAdmin="isAdmin"
-                :currentUser="auth.currentUser.uid"
-                :projectID="currentProjectID"
-                @assignToTask="assignToTask"
-                @updateTaskStatus="updateTaskStatus"
-                @deleteTask="deleteTask"
-              />
+            <Task v-if="tasks" v-for="task in tasks"
+              :key="task.id"
+              :taskData="task"
+              :isAdmin="isAdmin"
+              :currentUser="auth.currentUser.uid"
+              :projectID="currentProjectID"
+              @assignToTask="assignToTask"
+              @updateTaskStatus="updateTaskStatus"
+              @deleteTask="deleteTask"
+            />
 
-            </div>
+          </div>
           <button @click="showTasksModal = false" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors mt-5">Close</button>
         </div>
       </div>
